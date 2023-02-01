@@ -4,13 +4,17 @@ SendMode, Input
 SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 
-Gui, -Caption
-Gui, Add, Button, x10 y+5 w120 default, Start
-Gui, add, button, x10 y+5 w120 gabout, About
-Gui, Add, Button, x10 y+5 w120 gcancel, Exit
-Gui, Add, DropDownList, vInputChoice, a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0
-Gui, Add, Picture, w120 h80, media/TetoBanner.png
-Gui, Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
+Gui, 1:-Caption
+Gui, 1:Add, Button, x10 y+5 w120 default, Start
+Gui, 1:Add, button, x10 y+5 w120 gabout, About
+Gui, 1:Add, Button, x10 y+5 w120 gOptions, Options
+Gui, 1:Add, Button, x10 y+5 w120 gcancel, Exit
+Gui, 1:Add, Picture, w120 h80, media/TetoBanner.png
+Gui, 1:Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
+
+Gui, 2:-SysMenu
+Gui, 2:Add, Button, gBack, Back
+Gui, 1:Show, w140 h205, Teto Voice Launch Gear System
 return
 
 about() {
@@ -21,6 +25,16 @@ about() {
 cancel() {
     ExitApp
 }
+
+Options:
+Gui, 1:Hide
+Gui, 2:Show, w140 h205, Teto Voice Launch Gear System Settings
+Return
+
+Back:
+Gui, 2:Hide
+Gui, 1:Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
+Return
 
 ButtonStart:
 Gui, Submit 
