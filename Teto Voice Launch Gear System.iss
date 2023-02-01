@@ -28,11 +28,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "C:\Program Files (x86)\Inno Setup 6\Examples\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Ender\Desktop\GearDown.mp3"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Ender\Desktop\GearUp.mp3"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Ender\Desktop\InvalidInput.mp3"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Ender\Desktop\Teto Voice Launch Gear System.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Ender\Desktop\TetoIcon.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Ender\Desktop\TVLGS\Teto Voice Launch Gear System.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Ender\Desktop\TVLGS\sounds\*"; DestDir: "{app}\sounds"; Flags: ignoreversion
+Source: "C:\Users\Ender\Desktop\TVLGS\TetoIcon.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
