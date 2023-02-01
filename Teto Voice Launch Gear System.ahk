@@ -47,6 +47,10 @@ Gui, Submit
 GearDown = 1
 Loop {
     KeyWait, %InputChoice%, D
+    ; If user holds esc and ctrl while pressing desired keybind the app will exit
+    if (GetKeyState("Esc", "P") and GetKeyState("Ctrl", "P")) {
+        ExitApp
+    }
     if (GearDown = 0) {
         SoundPlay, sounds/GearDown.mp3
         Sleep, 1000
