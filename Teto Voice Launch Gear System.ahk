@@ -1,3 +1,6 @@
+;Programmed by MrEnder
+;Commissioned by Heliodor
+
 #NoEnv
 #SingleInstance, Force
 SendMode, Input
