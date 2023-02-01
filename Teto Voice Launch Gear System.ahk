@@ -12,6 +12,7 @@ IniRead, InputChoiceSetting, settings.ini, Settings, InputChoiceIndex
 IniRead, MinDelaySetting, settings.ini, Settings, MinDelay
 IniRead, BGColorSetting, settings.ini, Settings, BGColor
 
+; Main gui
 Gui, 1:-Caption
 Gui, Color, 0x%BGColorSetting%
 Gui, 1:Add, Button, x10 y+5 w120 default, Start
@@ -21,11 +22,19 @@ Gui, 1:Add, Button, x10 y+5 w120 gcancel, Exit
 Gui, 1:Add, Picture, w120 h80, media/TetoBanner.png
 Gui, 1:Show, w140 h205 x15 y15, Teto Voice Launch Gear System (TLGVS)
 
-Gui, 1:Add, Button, x10 y+8 w120 gBack, Minimize
+; Options gui
+Gui, 1:Add, Button, x10 y+8 w120 gMain, Minimize
 Gui, 1:Add, Text, x10 y+5 w120, Select your landing gear keybind
 Gui, 1:Add, DropDownList, Choose%InputChoiceSetting% vInputChoice, a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0
 Gui, 1:Add, Text, x10 y+5 w120, Choose your minimum activation delay (ms.)
 Gui, 1:Add, Edit, x10 y+5 w120 vMinDelay, %MinDelaySetting%
+Gui, 1:Add, Button, x10 y+8 w120 gDefaults, Defaults
+
+; Defaults gui
+Gui, 1:Add, Text, x10 y+5 w120, InputChoice Default: %InputChoiceSetting%
+Gui, 1:Add, Text, x10 y+5 w120, MinDelay Default: %MinDelaySetting%
+Gui, 1:Add, Text, x10 y+5 w120, BGColor Default: %BGColorSetting%
+Gui, 1:Add, Button, x10 y+8 w120 gOptions, Minimize
 return
 
 about() {
@@ -36,12 +45,16 @@ cancel() {
     ExitApp
 }
 
-Options:
-Gui, 1:Show, w140 h405, Teto Voice Launch Gear System Settings
+Main:
+Gui, 1:Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
 Return
 
-Back:
-Gui, 1:Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
+Options:
+Gui, 1:Show, w140 h380, Teto Voice Launch Gear System Settings
+Return
+
+Defaults:
+Gui, 1:Show, w140 h480, Teto Voice Launch Gear System Defaults
 Return
 
 ButtonStart:
