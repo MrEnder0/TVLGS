@@ -10,8 +10,10 @@ SetWorkingDir, %A_ScriptDir%
 ;Read the settings.ini file
 IniRead, InputChoiceSetting, settings.ini, Settings, InputChoiceIndex
 IniRead, MinDelaySetting, settings.ini, Settings, MinDelay
+IniRead, BGColorSetting, settings.ini, Settings, BGColor
 
 Gui, 1:-Caption
+Gui, Color, 0x%BGColorSetting%
 Gui, 1:Add, Button, x10 y+5 w120 default, Start
 Gui, 1:Add, button, x10 y+5 w120 gabout, About
 Gui, 1:Add, Button, x10 y+5 w120 gOptions, Options
@@ -19,7 +21,7 @@ Gui, 1:Add, Button, x10 y+5 w120 gcancel, Exit
 Gui, 1:Add, Picture, w120 h80, media/TetoBanner.png
 Gui, 1:Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
 
-Gui, 1:Add, Button, x10 y+5 w120 gBack, Minimize
+Gui, 1:Add, Button, x10 y+8 w120 gBack, Minimize
 Gui, 1:Add, Text, x10 y+5 w120, Select your landing gear keybind
 Gui, 1:Add, DropDownList, Choose%InputChoiceSetting% vInputChoice, a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0
 Gui, 1:Add, Text, x10 y+5 w120, Choose your minimum activation delay (ms.)
