@@ -1,1 +1,5 @@
+# Ignore Binaries
 Output/
+*.exe
+*.dll
+
