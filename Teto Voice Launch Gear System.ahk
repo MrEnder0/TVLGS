@@ -37,12 +37,10 @@ cancel() {
 }
 
 Options:
-Gui, 1:Hide
 Gui, 1:Show, w140 h405, Teto Voice Launch Gear System Settings
 Return
 
 Back:
-Gui, 1:Hide
 Gui, 1:Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
 Return
 
