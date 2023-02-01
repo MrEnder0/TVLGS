@@ -1,5 +1,5 @@
-;Programmed by MrEnder
-;Commissioned by Heliodor
+; Programmed by MrEnder
+; Commissioned by Heliodor
 
 #NoEnv
 #SingleInstance, Force
@@ -7,7 +7,7 @@ SendMode, Input
 SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 
-;Read the settings.ini file
+; Read the settings.ini file
 IniRead, InputChoiceSetting, settings.ini, Settings, InputChoiceIndex
 IniRead, MinDelaySetting, settings.ini, Settings, MinDelay
 IniRead, BGColorSetting, settings.ini, Settings, BGColor
