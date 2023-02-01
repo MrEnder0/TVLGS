@@ -29,12 +29,12 @@ GearDown = 1
 Loop {
     KeyWait, %InputChoice%, D
     if (GearDown = 0) {
-        SoundPlay, GearDown.mp3
+        SoundPlay, sounds/GearDown.mp3
         Sleep, 1000
         GearDown = 1
     }
     else {
-        SoundPlay, GearUp.mp3
+        SoundPlay, sounds/GearUp.mp3
         Sleep, 1000
         GearDown = 0
     }
