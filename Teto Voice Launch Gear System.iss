@@ -1,5 +1,5 @@
 #define MyAppName "Teto Voice Launch Gear System"
-#define MyAppVersion "1.1"
+#define MyAppVersion "1.2"
 #define MyAppPublisher "Mr.Ender"
 #define MyAppURL "https://github.com/MrEnder0"
 #define MyAppExeName "MyProg.exe"
