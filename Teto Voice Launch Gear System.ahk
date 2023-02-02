@@ -54,7 +54,7 @@ Version: 1.3.5
 
     How to change the background color: To change the background color of the app you can edit the file named "settings.ini" this file will be in the same directory as your executable. You can change the hex code for the background color to any color you want. Make sure to not put 0x in front of the hex code.
 
-    How to change the banner: To change the banner you can edit the file named "settings.ini" this file will be in the same directory as your executable. You can change the path to the banner to any path you want.
+    How to change the banner: To change the banner you can edit the file named "settings.ini" this file will be in the same directory as your executable. You can change the path to the banner to any path you want. Just make sure the name of the file is exactly "TetoBanner.png".
 
     How to restore the settings: To restore the settings to default you can click "Restore Settings" in the options gui all the way at the bottom. If you do not see this make sure you have opened the options gui by clicking "Options" in the main gui.
     )
