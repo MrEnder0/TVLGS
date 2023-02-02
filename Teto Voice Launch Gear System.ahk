@@ -51,6 +51,12 @@ Version: 1.3.5
     How to swap the sounds for the voicelines: To swap the sounds for the voice lines make sure to open up the folder that this executable in stored in you should see a subfolder named "sounds" inside of that folder you can remove the old ones and put the new ones in. Make sure they have the exact same name this includes the file extension if you dont it wont detect the sound and it wont work.
     
     Voiceline desync issue: Make sure you are not pressing your landing gear key while not being in the ship or it will false detect it and desync the voice lines with what is actually happening. If the issue is still happening make sure when you start the app that your ship is landed with all systems off and that your landing gear is down.
+
+    How to change the background color: To change the background color of the app you can edit the file named "settings.ini" this file will be in the same directory as your executable. You can change the hex code for the background color to any color you want. Make sure to not put 0x in front of the hex code.
+
+    How to change the banner: To change the banner you can edit the file named "settings.ini" this file will be in the same directory as your executable. You can change the path to the banner to any path you want.
+
+    How to restore the settings: To restore the settings to default you can click "Restore Settings" in the options gui all the way at the bottom. If you do not see this make sure you have opened the options gui by clicking "Options" in the main gui.
     )
 Return
 
