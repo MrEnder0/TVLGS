@@ -18,9 +18,9 @@ IniRead, MediaPathSetting, settings.ini, Settings, MediaPath
 Gui, 1:-Caption
 Gui, Color, 0x%BGColorSetting%
 Gui, 1:Add, Button, x10 y+5 w120 default, Start
-Gui, 1:Add, button, x10 y+5 w120 gabout, About
+Gui, 1:Add, button, x10 y+5 w120 gAbout, About
 Gui, 1:Add, Button, x10 y+5 w120 gOptions, Options
-Gui, 1:Add, Button, x10 y+5 w120 gcancel, Exit
+Gui, 1:Add, Button, x10 y+5 w120 gCancel, Exit
 Gui, 1:Add, Picture, w120 h80, %MediaPathSetting%TetoBanner.png
 Gui, 1:Show, w140 h205 x15 y15, Teto Voice Launch Gear System (TLGVS)
 
@@ -30,16 +30,10 @@ Gui, 1:Add, Text, x10 y+5 w120, Select your landing gear keybind
 Gui, 1:Add, DropDownList, Choose%InputChoiceSetting% vInputChoice, a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|-|=|[|]|;|'|,|.|/
 Gui, 1:Add, Text, x10 y+5 w120, Choose your minimum activation delay (ms.)
 Gui, 1:Add, Edit, x10 y+5 w120 vMinDelay, %MinDelaySetting%
-Gui, 1:Add, Button, x10 y+8 w120 gDefaults, Defaults
-
-; Defaults gui
-Gui, 1:Add, Text, x10 y+5 w120, InputChoice Default: %InputChoiceSetting%
-Gui, 1:Add, Text, x10 y+5 w120, MinDelay Default: %MinDelaySetting%
-Gui, 1:Add, Text, x10 y+5 w120, BGColor Default: %BGColorSetting%
-Gui, 1:Add, Button, x10 y+5 w120 gOptions, Minimize
+Gui, 1:Add, Button, x10 y+8 w120 gRestoreSettings, Restore Settings
 return
 
-about() {
+About:
     MsgBox,
     (
     Teto Voice Launch Gear System (TLGVS)
@@ -58,22 +52,53 @@ Version: 1.3.5
     
     Voiceline desync issue: Make sure you are not pressing your landing gear key while not being in the ship or it will false detect it and desync the voice lines with what is actually happening. If the issue is still happening make sure when you start the app that your ship is landed with all systems off and that your landing gear is down.
     )
-}
+Return
 
-cancel() {
+Cancel:
     ExitApp
-}
+Return
 
 Main:
 Gui, 1:Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
 Return
 
 Options:
-Gui, 1:Show, w140 h380, Teto Voice Launch Gear System Settings
+Gui, 1:Show, w140 h380, Teto Voice Launch Gear System Defaults
 Return
 
-Defaults:
-Gui, 1:Show, w140 h475, Teto Voice Launch Gear System Defaults
+RestoreSettings:
+IniWrite, 14, settings.ini, Settings, InputChoiceIndex
+IniWrite, 4500, settings.ini, Settings, MinDelay
+IniWrite, ECECEC, settings.ini, Settings, BGColor
+IniWrite, sounds/, settings.ini, Settings, SoundsPath
+IniWrite, media/, settings.ini, Settings, MediaPath
+
+;Reload Data
+IniRead, InputChoiceSetting, settings.ini, Settings, InputChoiceIndex
+IniRead, MinDelaySetting, settings.ini, Settings, MinDelay
+IniRead, BGColorSetting, settings.ini, Settings, BGColor
+IniRead, SoundPathSetting, settings.ini, Settings, SoundsPath
+IniRead, MediaPathSetting, settings.ini, Settings, MediaPath
+
+Gui, 1:Destroy
+
+; Main gui
+Gui, 1:-Caption
+Gui, Color, 0x%BGColorSetting%
+Gui, 1:Add, Button, x10 y+5 w120 default, Start
+Gui, 1:Add, button, x10 y+5 w120 gAbout, About
+Gui, 1:Add, Button, x10 y+5 w120 gOptions, Options
+Gui, 1:Add, Button, x10 y+5 w120 gCancel, Exit
+Gui, 1:Add, Picture, w120 h80, %MediaPathSetting%TetoBanner.png
+
+; Options gui
+Gui, 1:Add, Button, x10 y+8 w120 gMain, Minimize
+Gui, 1:Add, Text, x10 y+5 w120, Select your landing gear keybind
+Gui, 1:Add, DropDownList, Choose%InputChoiceSetting% vInputChoice, a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|-|=|[|]|;|'|,|.|/
+Gui, 1:Add, Text, x10 y+5 w120, Choose your minimum activation delay (ms.)
+Gui, 1:Add, Edit, x10 y+5 w120 vMinDelay, %MinDelaySetting%
+Gui, 1:Add, Button, x10 y+8 w120 gRestoreSettings, Restore Settings
+Gui, 1:Show, w140 h205 x15 y15, Teto Voice Launch Gear System (TLGVS)
 Return
 
 ButtonStart:
