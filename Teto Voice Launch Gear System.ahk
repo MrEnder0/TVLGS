@@ -11,6 +11,8 @@ SetWorkingDir, %A_ScriptDir%
 IniRead, InputChoiceSetting, settings.ini, Settings, InputChoiceIndex
 IniRead, MinDelaySetting, settings.ini, Settings, MinDelay
 IniRead, BGColorSetting, settings.ini, Settings, BGColor
+IniRead, SoundPathSetting, settings.ini, Settings, SoundsPath
+IniRead, MediaPathSetting, settings.ini, Settings, MediaPath
 
 ; Main gui
 Gui, 1:-Caption
@@ -19,7 +21,7 @@ Gui, 1:Add, Button, x10 y+5 w120 default, Start
 Gui, 1:Add, button, x10 y+5 w120 gabout, About
 Gui, 1:Add, Button, x10 y+5 w120 gOptions, Options
 Gui, 1:Add, Button, x10 y+5 w120 gcancel, Exit
-Gui, 1:Add, Picture, w120 h80, media/TetoBanner.png
+Gui, 1:Add, Picture, w120 h80, %MediaPathSetting%TetoBanner.png
 Gui, 1:Show, w140 h205 x15 y15, Teto Voice Launch Gear System (TLGVS)
 
 ; Options gui
@@ -34,7 +36,7 @@ Gui, 1:Add, Button, x10 y+8 w120 gDefaults, Defaults
 Gui, 1:Add, Text, x10 y+5 w120, InputChoice Default: %InputChoiceSetting%
 Gui, 1:Add, Text, x10 y+5 w120, MinDelay Default: %MinDelaySetting%
 Gui, 1:Add, Text, x10 y+5 w120, BGColor Default: %BGColorSetting%
-Gui, 1:Add, Button, x10 y+8 w120 gOptions, Minimize
+Gui, 1:Add, Button, x10 y+5 w120 gOptions, Minimize
 return
 
 about() {
@@ -71,7 +73,7 @@ Gui, 1:Show, w140 h380, Teto Voice Launch Gear System Settings
 Return
 
 Defaults:
-Gui, 1:Show, w140 h480, Teto Voice Launch Gear System Defaults
+Gui, 1:Show, w140 h475, Teto Voice Launch Gear System Defaults
 Return
 
 ButtonStart:
@@ -85,12 +87,12 @@ Loop {
         ExitApp
     }
     if (GearDown = 0) {
-        SoundPlay, sounds/GearDown.mp3
+        SoundPlay, %SoundPathSetting%GearDown.mp3
         Sleep, 1000
         GearDown = 1
     }
     else {
-        SoundPlay, sounds/GearUp.mp3
+        SoundPlay, %SoundPathSetting%GearUp.mp3
         Sleep, 1000
         GearDown = 0
     }
