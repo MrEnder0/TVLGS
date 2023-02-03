@@ -50,6 +50,8 @@ Version: 1.4
     How to configure: To configure the settings for the app click "Options" the gui should expand and reveal many options that can be changed. To confirm your settings click "Minimize" and the window should restore to normal and keep your settings for the rest of the session. If you want to save your settings and have them stay inbetween sessions edit the file named "settings.ini" this file will be in the same directory as your executable.
 
     How to swap the sounds for the voicelines: To swap the sounds for the voice lines make sure to open up the folder that this executable in stored in you should see a subfolder named "sounds" inside of that folder you can remove the old ones and put the new ones in. Make sure they have the exact same name this includes the file extension if you dont it wont detect the sound and it wont work.
+
+    How to show gui: A way you can show the app gui without restarting is pretty simple, just press {input key} + esc + alt, make sure you have waited your min delay before trying to do this keybind, this will force close the app, then just start the app again and it should show the gui. Also keep in mind the voiceline wont flip it will replay the same voiceline after pressing the key again.
     
     Voiceline desync issue: Make sure you are not pressing your landing gear key while not being in the ship or it will false detect it and desync the voice lines with what is actually happening. If the issue is still happening make sure when you start the app that your ship is landed with all systems off and that your landing gear is down.
 
@@ -114,7 +116,7 @@ IniWrite, %InputChoiceSetting%, settingsBackup.ini, Settings, InputChoiceIndex
 IniWrite, %MinDelaySetting%, settingsBackup.ini, Settings, MinDelay
 IniWrite, %BGColorSetting%, settingsBackup.ini, Settings, BGColor
 IniWrite, %SoundPathSetting%, settingsBackup.ini, Settings, SoundsPath
-IniWrite, %MediaPathSetting%, settingsBackup.ini, Settings, MediaPath
+IniWrite, %MediaPathSetting%, settingsBackup.ini, Settings, MediaPaths
 MsgBox, Settings have been backed up to settingsBackup.ini
 Return
 
@@ -127,6 +129,16 @@ Loop {
     ; If user holds esc and ctrl while pressing desired keybind the app will exit
     if (GetKeyState("Esc", "P") and GetKeyState("Ctrl", "P")) {
         ExitApp
+    }
+    ; If user holds esc and s while pressing desired keybind the app will re-apprear
+    if (GetKeyState("Esc", "P") and GetKeyState("Alt", "P")) {
+        Gui, 1:Show, w140 h205 x15 y15, Teto Voice Launch Gear System (TLGVS)
+        if (GearDown = 0) {
+            GearDown = 1
+        }
+        else {
+            GearDown = 0
+        }
     }
     if (GearDown = 0) {
         SoundPlay, %SoundPathSetting%GearDown.mp3
