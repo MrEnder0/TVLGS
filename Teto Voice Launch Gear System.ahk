@@ -41,7 +41,7 @@ About:
 Developer: MrEnder
 Commissioner: Heliodor
 Made in: February 2023
-Version: 1.3.5
+Version: 1.4
 
     How to use: When application is started make sure to select your keybind for your landing gear that you have aLso set in game. When that is selected make sure to click start.
     
