@@ -30,7 +30,8 @@ Gui, 1:Add, Text, x10 y+5 w120, Select your landing gear keybind
 Gui, 1:Add, DropDownList, Choose%InputChoiceSetting% vInputChoice, a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|-|=|[|]|;|'|,|.|/
 Gui, 1:Add, Text, x10 y+5 w120, Choose your minimum activation delay (ms.)
 Gui, 1:Add, Edit, x10 y+5 w120 vMinDelay, %MinDelaySetting%
-Gui, 1:Add, Button, x10 y+8 w120 gRestoreSettings, Restore Settings
+Gui, 1:Add, Button, x10 y+8 w120 gBackupSettings, Backup Settings
+Gui, 1:Add, Button, x10 y+5 w120 gRestoreSettings, Restore Settings
 return
 
 About:
@@ -69,7 +70,7 @@ Gui, 1:Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
 Return
 
 Options:
-Gui, 1:Show, w140 h380, Teto Voice Launch Gear System Defaults
+Gui, 1:Show, w140 h410, Teto Voice Launch Gear System Defaults
 Return
 
 RestoreSettings:
@@ -103,8 +104,17 @@ Gui, 1:Add, Text, x10 y+5 w120, Select your landing gear keybind
 Gui, 1:Add, DropDownList, Choose%InputChoiceSetting% vInputChoice, a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|-|=|[|]|;|'|,|.|/
 Gui, 1:Add, Text, x10 y+5 w120, Choose your minimum activation delay (ms.)
 Gui, 1:Add, Edit, x10 y+5 w120 vMinDelay, %MinDelaySetting%
-Gui, 1:Add, Button, x10 y+8 w120 gRestoreSettings, Restore Settings
+Gui, 1:Add, Button, x10 y+8 w120 gBackupSettings, Backup Settings
+Gui, 1:Add, Button, x10 y+5 w120 gRestoreSettings, Restore Settings
 Gui, 1:Show, w140 h205 x15 y15, Teto Voice Launch Gear System (TLGVS)
+Return
+
+BackUpSettings:
+IniWrite, %InputChoiceSetting%, settingsBackup.ini, Settings, InputChoiceIndex
+IniWrite, %MinDelaySetting%, settingsBackup.ini, Settings, MinDelay
+IniWrite, %BGColorSetting%, settingsBackup.ini, Settings, BGColor
+IniWrite, %SoundPathSetting%, settingsBackup.ini, Settings, SoundsPath
+IniWrite, %MediaPathSetting%, settingsBackup.ini, Settings, MediaPath
 Return
 
 ButtonStart:
