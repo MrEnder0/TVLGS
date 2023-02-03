@@ -115,6 +115,7 @@ IniWrite, %MinDelaySetting%, settingsBackup.ini, Settings, MinDelay
 IniWrite, %BGColorSetting%, settingsBackup.ini, Settings, BGColor
 IniWrite, %SoundPathSetting%, settingsBackup.ini, Settings, SoundsPath
 IniWrite, %MediaPathSetting%, settingsBackup.ini, Settings, MediaPath
+MsgBox, Settings have been backed up to settingsBackup.ini
 Return
 
 ButtonStart:
