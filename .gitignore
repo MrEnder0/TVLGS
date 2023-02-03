@@ -3,3 +3,5 @@ Output/
 *.exe
 *.dll
 
+# Ignore generated files
+settingsBackup.ini
