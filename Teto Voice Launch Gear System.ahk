@@ -7,6 +7,17 @@ SendMode, Input
 SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 
+; Check if config file exists
+If !FileExist("settings.ini")
+{
+    IniWrite, 14, settings.ini, Settings, InputChoiceIndex
+    IniWrite, 4500, settings.ini, Settings, MinDelay
+    IniWrite, ECECEC, settings.ini, Settings, BGColor
+    IniWrite, sounds/, settings.ini, Settings, SoundsPath
+    IniWrite, media/, settings.ini, Settings, MediaPath
+    MsgBox, Config file generated due to no config file being found
+}
+
 ; Read the settings.ini file
 IniRead, InputChoiceSetting, settings.ini, Settings, InputChoiceIndex
 IniRead, MinDelaySetting, settings.ini, Settings, MinDelay
