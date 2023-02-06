@@ -7,7 +7,7 @@ SendMode, Input
 SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 
-; Check if config file exists
+; Check if settings file exists
 If !FileExist("settings.ini")
 {
     IniWrite, 14, settings.ini, Settings, InputChoiceIndex
@@ -99,6 +99,7 @@ IniRead, BGColorSetting, settings.ini, Settings, BGColor
 IniRead, SoundPathSetting, settings.ini, Settings, SoundsPath
 IniRead, MediaPathSetting, settings.ini, Settings, MediaPath
 
+;Reload Gui
 Gui, 1:Destroy
 
 ; Main gui
