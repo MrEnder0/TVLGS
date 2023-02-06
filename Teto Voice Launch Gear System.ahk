@@ -72,7 +72,7 @@ Gui, 1:Show, w140 h205, Teto Voice Launch Gear System (TLGVS)
 Return
 
 Options:
-Gui, 1:Show, w140 h410, Teto Voice Launch Gear System Defaults
+Gui, 1:Show, w140 h410, Teto Voice Launch Gear System Settings
 Return
 
 RestoreSettings:
